@@ -1,17 +1,13 @@
-
-
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Inicio')
 
-@section('content_header')
-<x-app-layout>
-
+@section('content_header') <!-- Titulo -->
     <div class="py-12">
-        <h1>Hi</h1>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Inicio') }}
+        </h2>
     </div>
-</x-app-layout>
-
 @stop
 
 @section('content')
