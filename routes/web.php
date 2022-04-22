@@ -32,3 +32,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Route::resource('users',App\Http\Controllers\UserController::class);
