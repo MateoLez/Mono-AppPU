@@ -3,163 +3,110 @@
 
 
 CREATE TABLE `bancos` (
-  `idBanco` int(11) NOT NULL,
-  `nombre` int(11) NOT NULL,
-  `descripcion` int(11) NOT NULL
+  `idBanco` varchar(5) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `descripcion` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `bancos`
---
-
-TRUNCATE TABLE `bancos`;
--- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Categoria
 --
 
 CREATE TABLE `categoria` (
-  `idCategoria` int(11) NOT NULL,
-  `nombre` int(11) NOT NULL,
-  `descripcion` int(11) NOT NULL
+  `idCategoria` varchar(5) NOT NULL,
+  `nombre` int(20) NOT NULL,
+  `descripcion` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Truncar tablas antes de insertar `categoria`
---
-
-TRUNCATE TABLE `categoria`;
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ciudad`
+-- Ciudad
 --
 
 CREATE TABLE `ciudad` (
   `idPais` char(3) NOT NULL,
   `idCiudad` char(3) NOT NULL,
   `singla` varchar(10) NOT NULL,
-  `nombre` varchar(15) NOT NULL
+  `nombre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Truncar tablas antes de insertar `ciudad`
---
-
-TRUNCATE TABLE `ciudad`;
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados`
+-- Empleados
 --
 
 CREATE TABLE `empleados` (
-  `idEmpleado` int(11) NOT NULL,
+  `idEmpleado` varchar(12) NOT NULL,
   `doc` varchar(12) NOT NULL,
-  `idEmpresa` int(4) NOT NULL,
-  `tratamiento` int(11) NOT NULL,
-  `direccion` int(11) NOT NULL,
-  `barrio` int(11) NOT NULL,
+  `idEmpresa` varchar(5) NOT NULL,
+  `tratamiento` varchar(10) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `barrio` varchar(20) NOT NULL,
   `pais` char(3) NOT NULL,
-  `ciudad` int(11) NOT NULL,
-  `telefono` int(11) NOT NULL,
-  `celular` int(11) NOT NULL,
-  `correo` int(11) NOT NULL,
-  `profesion` int(11) NOT NULL,
-  `fechaCreacion` int(11) NOT NULL,
-  `fechaRetiro` int(11) NOT NULL,
-  `estadoEmpleado` int(3) NOT NULL
+  `ciudad` char(3) NOT NULL,
+  `telefono` varchar(10) NOT NULL,
+  `celular` varchar(10) NOT NULL,
+  `correo` varchar(25) NOT NULL,
+  `profesion` varchar(30) NOT NULL,
+  `fechaCreacion` datetime NOT NULL,
+  `fechaRetiro` datetime NOT NULL,
+  `estadoEmpleado` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `empleados`
---
-
-TRUNCATE TABLE `empleados`;
--- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empresa`
+-- Empresa
 --
 
 CREATE TABLE `empresa` (
-  `idEmpresa` int(4) NOT NULL,
-  `idCategoria` int(11) NOT NULL,
-  `nit1` int(11) NOT NULL,
-  `nit2` int(11) NOT NULL,
-  `nombre1` int(11) NOT NULL,
-  `nombre2` int(11) NOT NULL,
-  `direccion1` int(11) NOT NULL,
-  `direccion2` int(11) NOT NULL,
-  `barrio` int(11) NOT NULL,
+  `idEmpresa` varchar(5) NOT NULL,
+  `idCategoria` varchar(5) NOT NULL,
+  `nit1` varchar(15) NOT NULL,
+  `nit2` varchar(15) NOT NULL,
+  `nombre1` varchar(25) NOT NULL,
+  `nombre2` varchar(25) NOT NULL,
+  `direccion1` varchar(30) NOT NULL,
+  `direccion2` varchar(30) NOT NULL,
+  `barrio` varchar(20)) NOT NULL,
   `pais` char(3) NOT NULL,
   `ciudad` char(3) NOT NULL,
-  `telefono` int(11) NOT NULL,
-  `celular` int(11) NOT NULL,
-  `correo` int(11) NOT NULL
+  `telefono` varchar(10) NOT NULL,
+  `celular` varchar(10) NOT NULL,
+  `correo` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Truncar tablas antes de insertar `empresa`
---
-
-TRUNCATE TABLE `empresa`;
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empresa_bancos`
+-- empresa_bancos`
 --
 
 CREATE TABLE `empresa_bancos` (
-  `id` int(11) NOT NULL,
-  `idEmpresa` int(11) NOT NULL,
-  `idBanco` int(11) NOT NULL,
-  `noCuenta` int(11) NOT NULL,
-  `tipoCuenta` int(11) NOT NULL,
-  `nombrePropietario` int(11) NOT NULL
+  `id` int(5) NOT NULL,
+  `idEmpresa` varchar(5) NOT NULL,
+  `idBanco` varchar(5) NOT NULL,
+  `noCuenta` varchar(20) NOT NULL,
+  `tipoCuenta` varchar(20) NOT NULL,
+  `nombrePropietario` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Truncar tablas antes de insertar `empresa_bancos`
---
-
-TRUNCATE TABLE `empresa_bancos`;
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `estados`
+-- `estados`
 --
 
 CREATE TABLE `estados` (
-  `idEstados` int(3) NOT NULL,
-  `nombre` int(11) NOT NULL,
-  `descripcion` int(11) NOT NULL
+  `idEstados` char(1) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `descripcion` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Truncar tablas antes de insertar `estados`
---
-
-TRUNCATE TABLE `estados`;
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pais`
+-- `pais`
 --
 
 CREATE TABLE `pais` (
   `idPais` char(3) NOT NULL,
   `sigla` varchar(10) NOT NULL,
-  `nombre` varchar(12) NOT NULL
+  `nombre` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Truncar tablas antes de insertar `pais`
---
-
-TRUNCATE TABLE `pais`;
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `usuarios`
